@@ -192,9 +192,7 @@ function draw()
         {
             tela = 1
                    vidas=3
+					pontos = 0
                          setup(false)
         }
     }
-
-}
- 
