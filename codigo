@@ -4,7 +4,7 @@ var xj, yj; // coordendas do jogador
 var vidas = 3;
 var pontos = 0;
 var x = [], y = [];
-var quantidade = 1; // quantidade de obstaculos
+var quantidade = 10; // quantidade de obstaculos
 var mx = 1;
 var my = 1;
 var easing = 0.05;
@@ -37,15 +37,7 @@ function setup()
     img1= loadImage("https://i.imgur.com/UukTM0q.png");  // Start
     frameRate(100);
     ellipseMode(RADIUS);
-    for (i=0; i <quantidade; i++)  //contagem para chamada
-    {
-        g[i] = random(500,0);//aleatorio
-        l[i] = -random(0,500);//aleatorio
-    }
-
-
-
-	for (i=0; i <quantidade; i++)  //contagem para chamada
+   	for (i=0; i <quantidade; i++)  //contagem para chamada
     {
         x[i] = random(500,0);//aleatorio
         y[i] = -random(0,500);//aleatorio
