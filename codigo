@@ -5,7 +5,7 @@ var xj, yj; // coordendas do jogador
 var vidas = 3;
 var pontos = 0; 
 var x = [], y = [];
-var quantidade = 10; // quantidade de obstaculos
+var quantidade = 3; // quantidade de obstaculos
 var mx = 1;
 var my = 1;
 var easing = 0.05;
@@ -20,6 +20,7 @@ var p=14//direção no teclado
 var img;
 var img2;
 var img3;
+var img4;
 var tela=1;
 
 function setup() {
@@ -30,7 +31,7 @@ function setup() {
   
   yj = height-20; 
   yd = yj; 
-	
+	img4=loadImage("https://i.imgur.com/UiZ6Cac.png"); // onibus
 	img3=loadImage("https://i.imgur.com/f3E2TGw.png"); //GO
 	img2=loadImage("https://i.imgur.com/5MYLvYt.png"); //Pista
 	img1= loadImage("https://i.imgur.com/UukTM0q.png");  // Start
@@ -46,7 +47,6 @@ function draw() {
   // Displays the image at its actual size at point (0,0)
   image(img1, 0, 0);
 	 if ( tela == 1) {
-    background(img1);
       if (keyIsDown(ENTER) ) {
        tela = 2;  
     } 
@@ -54,8 +54,9 @@ function draw() {
   if ( tela == 2) {
 		image(img2,0,0);
 	 strokeWeight(4);
+		image(img4,p-20,250,250,250);
   for ( i=0; i<quantidade; i++){
-  	ellipse(x[i], y[i], 20, 20);// coordenadas de saida aleatorias
+	  	ellipse(x[i], y[i], 20, 20);// coordenadas de saida aleatorias
   	y[i]=y[i]+4; // oq faz o retangulo descer 
     if ( y[i] > 500 ){ 
       x[i] =  random(500,0);
@@ -86,7 +87,7 @@ ellipse(x[i], y[i], 20, 20)
   p = constrain(p, inner, width - inner);
   p = constrain(p, inner, height - inner);
 fill(230,230,0); 
-ellipse( p,height-20 , 2*raio, 2*raio);
+ellipse( p,height-20 , 2*raio, 2*raio) // elipse amarela
 	  if ( keyIsDown (RIGHT_ARROW))
   {
    p = p +  3 ;//soma 3 pra direita 
@@ -129,7 +130,6 @@ if (disparo) {
 
   if (vidas == 2) {
 		image(img3,0,0)
-    background(img3);
    		 if (keyIsDown(LEFT_ARROW)) {
        tela = 1
        vidas=3
