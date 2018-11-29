@@ -149,7 +149,7 @@ function draw()
         }
     }
 
-    if (vidas == 0)
+    if (vidas <= 0)
     {
         image(img3,0,0)
         if (keyIsDown(LEFT_ARROW))
