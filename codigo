@@ -1,6 +1,3 @@
-var g=[]
-var l=[]
-
 var disparo = false;
 var xd, yd; // coordendas do disparo
 var xj, yj; // coordendas do jogador
@@ -130,9 +127,7 @@ function draw()
                 pontos=pontos+1
                 if(pontos%5 == 0){
                     quantidade = quantidade+1
-                    console.log("oi\n")
-                }
-							//vidas = vidas - 1
+                     }				
                 x[i] =  random(500,0);
                 y[i] = -random(0,500);
             }
