@@ -1,5 +1,8 @@
+//disparo
+var disparo = false; 
+var xd, yd; // coordendas do disparo
+var xj, yj; // coordendas do jogador
 var vidas = 3;
-var vidas1= vidas 
 var pontos = 0; 
 var x = [], y = [];
 var quantidade = 10; // quantidade de obstaculos
@@ -21,48 +24,54 @@ var tela=1;
 
 function setup() {
   createCanvas(500, 500);
-    img3=loadImage("https://i.imgur.com/f3E2TGw.png%22); //GO
-    img2=loadImage("https://i.imgur.com/5MYLvYt.png%22); //Pista
-    img1= loadImage("https://i.imgur.com/UukTM0q.png%22);  // Start
+	//disparo
+	xj = p;
+  xd = xj; 
+  
+  yj = height-20; 
+  yd = yj; 
+	
+	img3=loadImage("https://i.imgur.com/f3E2TGw.png"); //GO
+	img2=loadImage("https://i.imgur.com/5MYLvYt.png"); //Pista
+	img1= loadImage("https://i.imgur.com/UukTM0q.png");  // Start
 frameRate(100);
   ellipseMode(RADIUS);
   for (i=0; i <quantidade; i++) {//contagem para chamada 
-      x[i] = random(500,0);//aleatorio
-      y[i] = -random(0,500);//aleatorio 
+  	x[i] = random(500,0);//aleatorio
+  	y[i] = -random(0,500);//aleatorio 
   }
 }
 // parte da repetição
 function draw() {
   // Displays the image at its actual size at point (0,0)
   image(img1, 0, 0);
-     if ( tela == 1) {
+	 if ( tela == 1) {
     background(img1);
       if (keyIsDown(ENTER) ) {
-       tela = 2;
+       tela = 2;  
     } 
   }
   if ( tela == 2) {
-        image(img2,0,0);
-    background(img2);
-     strokeWeight(4);
+		image(img2,0,0);
+	 strokeWeight(4);
   for ( i=0; i<quantidade; i++){
-      ellipse(x[i], y[i], 20, 20);// coordenadas de saida aleatorias
-      y[i]=y[i]+4; // oq faz o retangulo descer 
+  	ellipse(x[i], y[i], 20, 20);// coordenadas de saida aleatorias
+  	y[i]=y[i]+4; // oq faz o retangulo descer 
     if ( y[i] > 500 ){ 
       x[i] =  random(500,0);
       y[i] = -random(0,500);
     }
-     }
+ 	}
 for ( i=0; i<quantidade; i++){
-        if ( dist(p,height-20,x[i],y[i] ) >20){
-            if ( encontro == false) { 
-       branco = ! branco;
+		if ( dist(p,height-20,x[i],y[i] ) >20){
+			if ( encontro == false) { 
+       branco = ! branco;      
        encontro = true;
-                }
-        }
-        else {
+				}
+		}
+		else {
     encontro = false;
-        vidas= vidas1 - 1
+		vidas= vidas- 1
  }
  
  if ( branco ) {
@@ -73,16 +82,16 @@ for ( i=0; i<quantidade; i++){
  }
 ellipse(x[i], y[i], 20, 20)
 }
-      // movimento feito pelo teclado 
+	  // movimento feito pelo teclado 
   p = constrain(p, inner, width - inner);
   p = constrain(p, inner, height - inner);
 fill(230,230,0); 
 ellipse( p,height-20 , 2*raio, 2*raio);
-      if ( keyIsDown (RIGHT_ARROW))
+	  if ( keyIsDown (RIGHT_ARROW))
   {
    p = p +  3 ;//soma 3 pra direita 
   }
-      if ( keyIsDown (LEFT_ARROW))
+	  if ( keyIsDown (LEFT_ARROW))
   {
    p = p - 3 ;//soma 3 pra esquerda 
   }
@@ -91,15 +100,41 @@ textSize(18);
   fill(135,206,235);
   text("Vidas: "+vidas, 10, 60);
   text("Pontos: "+pontos, 10, 90);
-}
+		//disparo
+xj = p;
+xd = xj;
+//disparo
+if (keyIsDown(CONTROL) && (! disparo) ){ 
+    disparo = true; 
+    xd = xj;
+    yd = yj;     
+  }
+  // movimentação do disparo 
+  // se o disparo estiver ativo 
+  if (disparo) {
+    // movimenta o disparo / tiro 
+    yd = yd -30;
+    // se o disparo sumir na tela 
+    if (yd <0 ) {
+      // habilida a ocorrência de um novo disparo 
+      disparo = false; 
+    }
+  }
+if (disparo) {
+    // desenha a elipse / disparo 
+    ellipse(xd,yd,8,8);
+    
+  }
+}	
 
   if (vidas == 2) {
-        image(img3,0,0)
+		image(img3,0,0)
     background(img3);
-            if (keyIsDown(LEFT_ARROW)) {
-            tela = 1
-           vidas=3
-            setup(false)
-          } 
+   		 if (keyIsDown(LEFT_ARROW)) {
+       tela = 1
+				vidas=3
+			setup(false)
+      	} 
   }
+
 }
