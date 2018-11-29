@@ -1,11 +1,14 @@
 //disparo
+var g=[]
+var l=[]
+
 var disparo = false;
 var xd, yd; // coordendas do disparo
 var xj, yj; // coordendas do jogador
 var vidas = 3;
 var pontos = 0;
 var x = [], y = [];
-var quantidade = 3; // quantidade de obstaculos
+var quantidade = 10; // quantidade de obstaculos
 var mx = 1;
 var my = 1;
 var easing = 0.05;
@@ -40,6 +43,14 @@ function setup()
     ellipseMode(RADIUS);
     for (i=0; i <quantidade; i++)  //contagem para chamada
     {
+        g[i] = random(500,0);//aleatorio
+        l[i] = -random(0,500);//aleatorio
+    }
+	
+	
+	
+	for (i=0; i <quantidade; i++)  //contagem para chamada
+    {
         x[i] = random(500,0);//aleatorio
         y[i] = -random(0,500);//aleatorio
     }
@@ -73,7 +84,7 @@ function draw()
         }
         for ( i=0; i<quantidade; i++)
         {
-            if ( dist(p,height-20,x[i],y[i] ) > 20)
+            if ( dist(p,height-20||yd,x[i],y[i] ) > 20)
             {
                 if ( encontro == false)
                 {
@@ -84,7 +95,8 @@ function draw()
             else
             {
                 encontro = false;
-                vidas = vidas - 1
+               
+							vidas = vidas - 1
                 x[i] =  random(500,0);
                 y[i] = -random(0,500);
             }
@@ -100,7 +112,54 @@ function draw()
 
             ellipse(x[i], y[i], 20, 20)
         }
-        // movimento feito pelo teclado
+        
+			//segundacolisão
+			
+			 for ( i=0; i<quantidade; i++)
+        {
+            if ( dist(xd,yd,x[i],y[i] ) > 20)
+            {
+                if ( encontro == false)
+                {
+                    branco = !branco;
+                    encontro = true;
+                }
+            }
+            else
+            {
+                encontro = false;
+               pontos=pontos+1
+							//vidas = vidas - 1
+                x[i] =  random(500,0);
+                y[i] = -random(0,500);
+            }
+
+            if ( branco )
+            {
+                fill(255);
+            }
+            else
+            {
+                fill(255,0,0);
+            }
+
+            ellipse(x[i], y[i], 20, 20)
+        }
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// movimento feito pelo teclado
         p = constrain(p, inner, width - inner);
         p = constrain(p, inner, height - inner);
         fill(230,230,0);
