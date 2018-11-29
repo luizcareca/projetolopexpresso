@@ -132,8 +132,8 @@ if (disparo) {
     background(img3);
    		 if (keyIsDown(LEFT_ARROW)) {
        tela = 1
-				vidas=3
-		setup(false)
+       vidas=3
+	setup(false)
       	} 
   }
 
