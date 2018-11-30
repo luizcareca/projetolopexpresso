@@ -9,7 +9,7 @@ var xj, yj;
 var vidas = 3;
 var pontos = 0;
 var x = [], y = [];
-var quantidade = 1; 
+var quantidade = 5; 
 var mx = 1;
 var my = 1;
 var easing = 0.05;
@@ -210,7 +210,7 @@ q = random(-500,-50);
         text("Pontos: "+pontos, 10, 90);
         xj = p;
         xd = xj;
-        if (keyIsDown(BACKSPACE) && (! disparo) )
+        if (keyIsDown(32) && (! disparo) )
         {
             disparo = true;
             xd = xj;
@@ -241,7 +241,7 @@ q = random(-500,-50);
             tela = 1
                    vidas=3
 					pontos = 0
-						quantidade=10
+						quantidade=5
 							setup(false)
         }
 
