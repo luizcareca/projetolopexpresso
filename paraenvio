@@ -64,26 +64,22 @@ function draw()
     }
     if ( tela == 2)
     {
-
-
 			for ( i=0; i<quantidade; i++)
         {
-
-					background(0)
-			 strokeWeight(4);
-
-			fill(230,230,0);
-	rect(245,q,20,80)
-	q=q+2
-if(q>height){
-q = random(-500,-50);
-}
+		background(0)
+		strokeWeight(4);
+		fill(230,230,0);
+		rect(245,q,20,80)
+		q=q+2
+		if(q>height){
+			q = random(-500,-50);
 			}
+		}
 			 strokeWeight(4);
         image(img4,p-128,345,250,250);
         for ( i=0; i<quantidade; i++)
         {
-	ellipse(x[i], y[i], 20, 20);
+			ellipse(x[i], y[i], 20, 20);
             y[i]=y[i]+4;
             if ( y[i] > 500 )
             {
@@ -96,8 +92,8 @@ q = random(-500,-50);
 		{
 			for ( i=0; i<quantidade2; i++)
         {
-	    ellipse(k[i], ç[i], 20, 20);
-	         ç[i]=ç[i]+4;
+			ellipse(k[i], ç[i], 20, 20);
+	        ç[i]=ç[i]+4;
             if ( ç[i] > 500 )
             {
                 k[i] =  random(500,0);
@@ -117,7 +113,7 @@ q = random(-500,-50);
             else
             {
                 encontro = false;
-		vidas = vidas +1
+				vidas = vidas +1
                 k[i] =  random(500,0);
                 ç[i] = -random(0,500);
             }
@@ -148,7 +144,7 @@ q = random(-500,-50);
             else
             {
                 encontro = false;
-		vidas = vidas - 1
+				vidas = vidas - 1
                 x[i] =  random(500,0);
                 y[i] = -random(0,500);
             }
@@ -161,7 +157,7 @@ q = random(-500,-50);
             {
                 fill(255,0,0);
             }
-            ellipse(x[i], y[i], 20, 20)
+			ellipse(x[i], y[i], 20, 20)
         }
         for ( i=0; i<quantidade; i++)
         {
@@ -229,22 +225,22 @@ q = random(-500,-50);
         }
         if (disparo)
         {
-          fill("pink")
-					ellipse(xd,yd,8,8);
+			fill("pink")
+			ellipse(xd,yd,8,8);
 
         }
 	}
 
     if (vidas <= 0)
     {
-	        image(img3,0,0)
+        image(img3,0,0)
         if (keyIsDown(LEFT_ARROW))
         {
             tela = 1
-                   vidas=3
-					pontos = 0
-						quantidade=5
-							setup(false)
+            vidas=3
+			pontos = 0
+			quantidade=5
+			setup(false)
         }
 
 }
