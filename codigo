@@ -175,7 +175,7 @@ function draw()
             {
                 // habilida a ocorrência de um novo disparo
                 disparo = false;
-							yd=yd-500 //novas coordenadas de disparo
+							yd=yd-500
 							xd=0
             }
         }
@@ -198,7 +198,8 @@ function draw()
             tela = 1
                    vidas=3
 					pontos = 0
-                         setup(false)
+						quantidade=10
+							setup(false)
         }
     }
 }
