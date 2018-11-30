@@ -171,10 +171,12 @@ function draw()
             // movimenta o disparo / tiro
             yd = yd -20;
             // se o disparo sumir na tela
-            if (yd <0 )
+            if (yd < 0 )
             {
                 // habilida a ocorrência de um novo disparo
                 disparo = false;
+							yd=495
+							xd=p-168
             }
         }
         if (disparo)
@@ -183,7 +185,10 @@ function draw()
             ellipse(xd,yd,8,8);
 
         }
-    }
+				//if(disparo >= yd){
+				//	disparo=false
+   // }
+		}
 
     if (vidas <= 0)
     {
