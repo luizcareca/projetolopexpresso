@@ -30,7 +30,6 @@ var tela=1;
 function setup()
 {
     createCanvas(500, 500);
-    //disparo
     xj = p;
     xd = xj;
     yj = height-20;
