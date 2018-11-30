@@ -36,7 +36,6 @@ function setup()
     yd = yj;
     img4=loadImage("https://i.imgur.com/UiZ6Cac.png"); 
     img3=loadImage("https://i.imgur.com/f3E2TGw.png");
-    //img2=loadImage("https://i.imgur.com/5MYLvYt.png"); 
     img1= loadImage("https://i.imgur.com/UukTM0q.png");
     frameRate(100);
     ellipseMode(RADIUS);
