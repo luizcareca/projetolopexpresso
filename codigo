@@ -175,7 +175,7 @@ function draw()
             {
                 // habilida a ocorrência de um novo disparo
                 disparo = false;
-							yd=495
+							yd=495 // nova posição da bala pós disparo
 							xd=p-168
             }
         }
