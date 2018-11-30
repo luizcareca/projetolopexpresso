@@ -1,3 +1,4 @@
+var musica
 var q=14
 var k=[]
 var ç=[]
@@ -239,7 +240,7 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
 
     if (vidas <= 0)
     {
-        image(img3,0,0)
+	        image(img3,0,0)
         if (keyIsDown(LEFT_ARROW))
         {
             tela = 1
@@ -248,5 +249,6 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
 						quantidade=10
 							setup(false)
         }
-    }
+
+}
 }
