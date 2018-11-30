@@ -210,7 +210,7 @@ q = random(-500,-50);
         text("Pontos: "+pontos, 10, 90);
         xj = p;
         xd = xj;
-        if (keyIsDown(CONTROL) && (! disparo) )
+        if (keyIsDown(BACKSPACE) && (! disparo) )
         {
             disparo = true;
             xd = xj;
