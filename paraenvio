@@ -1,3 +1,4 @@
+var musica
 var q=14
 var k=[]
 var ç=[]
@@ -8,7 +9,7 @@ var xj, yj;
 var vidas = 3;
 var pontos = 0;
 var x = [], y = [];
-var quantidade = 10; 
+var quantidade = 1; 
 var mx = 1;
 var my = 1;
 var easing = 0.05;
@@ -36,13 +37,14 @@ function setup()
     yd = yj;
     img4=loadImage("https://i.imgur.com/UiZ6Cac.png"); 
     img3=loadImage("https://i.imgur.com/f3E2TGw.png");
-    img1= loadImage("https://i.imgur.com/UukTM0q.png");
+    img2=loadImage("https://i.imgur.com/h6CFfjj.png");
+ 	img1= loadImage("https://i.imgur.com/UukTM0q.png");
     frameRate(100);
     ellipseMode(RADIUS);
    	for (i=0; i <quantidade; i++)
     {
-        x[i] = random(500,0);//aleatorio
-        y[i] = -random(0,500);//aleatorio
+        x[i] = random(500,0);
+        y[i] = -random(0,500);
     }
 
 	for (i=0; i <quantidade2; i++)
@@ -51,17 +53,9 @@ function setup()
         ç[i] = -random(0,500);
     }
 }
-// parte da repetição
 function draw()
 {
-    	background(0);
-	 fill(230,230,0);
-	rect(250,q,15,50)
-	q=q+10
-if(q>height){
-q = random(-500,-50);
-}
-    image(img1, 0, 0);
+        image(img1, 0, 0);
     if ( tela == 1)
     {
         if (keyIsDown(ENTER) )
@@ -71,8 +65,13 @@ q = random(-500,-50);
     }
     if ( tela == 2)
     {
-       //image(img2,0,0);
-			background(0);
+				background(135)
+	 			fill(230,230,0)
+				rect(250,q,50)
+				q=q+10
+				if(q>height){
+							q = random(-500,-50);
+					}
         strokeWeight(4);
         image(img4,p-128,345,250,250);
         for ( i=0; i<quantidade; i++)
@@ -81,7 +80,7 @@ q = random(-500,-50);
 	rect(245,q,20,80)
 	q=q+2
 if(q>height){
-q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
+q = random(-500,-50);
 }
 	ellipse(x[i], y[i], 20, 20);
             y[i]=y[i]+4;
@@ -97,7 +96,7 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
 			for ( i=0; i<quantidade2; i++)
         {
 	    ellipse(k[i], ç[i], 20, 20);
-            ç[i]=ç[i]+4;
+	         ç[i]=ç[i]+4;
             if ( ç[i] > 500 )
             {
                 k[i] =  random(500,0);
@@ -124,13 +123,14 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
 
             if ( branco )
             {
-               fill(255,0,0);
+               fill(230,230,0);
             }
             else
             {
                fill(230,230,0) 
             }
-             ellipse(k[i], ç[i], 20, 20)
+            
+	    ellipse(k[i], ç[i], 20, 20);
         }
 			}
 		}
@@ -204,7 +204,6 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
         {
             p = p - 3 ;
         }
-//contagem de vidas
         textSize(18);
         fill(135,206,235);
         text("Vidas: "+vidas, 10, 60);
@@ -219,10 +218,8 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
         }
         if (disparo)
         {
-            // movimenta o disparo / tiro
-            yd = yd -20;
-            // se o disparo sumir na tela
-            if (yd < 0 )
+                 yd = yd -20;
+		if (yd < 0 )
             {
               disparo = false;
 		yd=yd-500
@@ -238,7 +235,7 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
 
     if (vidas <= 0)
     {
-        image(img3,0,0)
+	        image(img3,0,0)
         if (keyIsDown(LEFT_ARROW))
         {
             tela = 1
@@ -247,5 +244,6 @@ q = random(-500,-50); // gera um valor aleatório entre -500 e -50 (min e max)
 						quantidade=10
 							setup(false)
         }
-    }
+
+}
 }
