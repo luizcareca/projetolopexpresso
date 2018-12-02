@@ -27,7 +27,11 @@
 	var img4;
 	var musica
 	var tela=1;
-
+	function preload(){
+	musica=new Audio("arquivo.mp3")
+	musica.loop=true;
+	musica.play();
+	}
 	function setup()
 	{
 		createCanvas(500, 500);
